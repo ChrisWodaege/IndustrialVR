@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: ea33d335fb407ff4a8f0f042233994e9
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: blatt1Ctrl
+    100002: Blatt1CtrlGrp
+    100004: Blatt1Joint
+    100006: blatt2Ctrl
+    100008: Blatt2CtrlGrp
+    100010: Blatt2Joint
+    100012: blatt3Ctrl
+    100014: Blatt3CtrlGrp
+    100016: Blatt3Joint
+    100018: bremse
+    100020: CtrlGrp
+    100022: "fl\xFCgel"
+    100024: "Geh\xE4use1"
+    100026: generator
+    100028: Genratorkasten
+    100030: Gestell
+    100032: gestellGrp
+    100034: JointGrp
+    100036: KugellagerJoint
+    100038: kugeln
+    100040: lager
+    100042: lager1
+    100044: Lagerkasten2
+    100046: Lagerkasten338
+    100048: rollen
+    100050: RollenlagerJoint
+    100052: rotateCtrl
+    100054: rotor
+    100056: RotorCtrlGrp
+    100058: rotorCtrlGrp
+    100060: RotorJoint
+    100062: stopper
+    100064: WEA 1
+    100066: WEA_geom_set
+    100068: //RootNode
+    100070: WEACtrl
+    100072: welle
+    400000: blatt1Ctrl
+    400002: Blatt1CtrlGrp
+    400004: Blatt1Joint
+    400006: blatt2Ctrl
+    400008: Blatt2CtrlGrp
+    400010: Blatt2Joint
+    400012: blatt3Ctrl
+    400014: Blatt3CtrlGrp
+    400016: Blatt3Joint
+    400018: bremse
+    400020: CtrlGrp
+    400022: "fl\xFCgel"
+    400024: "Geh\xE4use1"
+    400026: generator
+    400028: Genratorkasten
+    400030: Gestell
+    400032: gestellGrp
+    400034: JointGrp
+    400036: KugellagerJoint
+    400038: kugeln
+    400040: lager
+    400042: lager1
+    400044: Lagerkasten2
+    400046: Lagerkasten338
+    400048: rollen
+    400050: RollenlagerJoint
+    400052: rotateCtrl
+    400054: rotor
+    400056: RotorCtrlGrp
+    400058: rotorCtrlGrp
+    400060: RotorJoint
+    400062: stopper
+    400064: WEA 1
+    400066: WEA_geom_set
+    400068: //RootNode
+    400070: WEACtrl
+    400072: welle
+    2100000: lambert1
+    4300000: "fl\xFCgel"
+    4300002: welle
+    4300004: "Geh\xE4use1"
+    4300006: bremse
+    4300008: generator
+    4300010: Genratorkasten
+    4300012: Gestell
+    4300014: Lagerkasten338
+    4300016: Lagerkasten2
+    4300018: lager1
+    4300020: kugeln
+    4300022: rollen
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: bremse
+    13700002: "fl\xFCgel"
+    13700004: "Geh\xE4use1"
+    13700006: generator
+    13700008: Genratorkasten
+    13700010: Gestell
+    13700012: kugeln
+    13700014: lager1
+    13700016: Lagerkasten2
+    13700018: Lagerkasten338
+    13700020: rollen
+    13700022: welle
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 69
+      lastFrame: 256
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
