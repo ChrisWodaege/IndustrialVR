@@ -11,11 +11,13 @@
 		public GameObject[] weaPart;
 		public GameObject[] scaleUpLabel;
 		public GameObject[] scaleDownLabel;
+		public bool inverse = false;
 		public GameObject[] enableDisableLabel;
 		private bool visibility = true;
 		private float switchstate;
 		private float startValue = 90f;
 		private Material mat;
+
 
 
 		void Start ()
@@ -38,7 +40,10 @@
 		{
 			SetVisibility ();
 
+
 		}
+
+
 
 		void SetSwitchstateToStartValue ()
 		{
@@ -53,20 +58,23 @@
 			foreach (GameObject go in weaPart) {
 
 				mat = go.GetComponent<Renderer> ().material;
+			
+				EnableDisableLabel (switchstate);
 
-				if (switchstate > 0.99f) {
-					FadeInObject ();
+				if (switchstate > 0.999) {
+					FadeInObject (go);
 				} else {
-					FadeOutObject ();
+					FadeOutObject (go);
 				}
 			}
 			ScaleUpLabel (switchstate);
 			ScaleDownLabel (switchstate);
-			EnableDisableLabel (switchstate);
+		
 		}
 
-		void FadeInObject ()
+		void FadeInObject (GameObject go)
 		{
+			
 			mat.SetInt ("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
 			mat.SetInt ("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
 			mat.SetInt ("_ZWrite", 1);
@@ -76,7 +84,7 @@
 			mat.renderQueue = -1;
 		}
 
-		void FadeOutObject ()
+		void FadeOutObject (GameObject go)
 		{
 			mat.SetInt ("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
 			mat.SetInt ("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
@@ -89,28 +97,42 @@
 			Color currentColor = mat.color;
 			currentColor.a = switchstate;
 			mat.color = currentColor;
+
 		}
 
 		void ScaleUpLabel (float switchstate){
 			float localState = 1;
 			localState -= switchstate;
 
-		
 			foreach (GameObject go in scaleUpLabel) {
-				go.transform.localScale = new Vector3(localState, localState, localState);
-
+				if (switchstate > 0.0001 && switchstate < 0.999) {
+					go.transform.localScale = new Vector3 (localState, localState, localState);
+				}
 			}
 		}
 		void ScaleDownLabel (float switchstate){
 			foreach (GameObject go in scaleDownLabel) {
-				go.transform.localScale = new Vector3(switchstate,switchstate, switchstate);
+				if (switchstate > 0.0001 && switchstate < 0.999) {
+					go.transform.localScale = new Vector3 (switchstate, switchstate, switchstate);
+				}
 			}
 		}
 		void EnableDisableLabel (float switchstate){
-			if (visibility == true && switchstate < 0.2) {
-				visibility = false;
-			} if (visibility == false && switchstate > 0.8) {
-				visibility = true;
+			if (inverse == false) {
+				if (visibility == true && switchstate < 0.2) {
+					visibility = false;
+				}
+				if (visibility == false && switchstate > 0.8) {
+					visibility = true;
+				}
+			}
+			if (inverse == true) {
+				if (visibility == true && switchstate > 0.999) {
+					visibility = false;
+				}
+				if (visibility == false && switchstate < 0.999) {
+					visibility = true;
+				}
 			}
 
 			foreach (GameObject go in enableDisableLabel) {
