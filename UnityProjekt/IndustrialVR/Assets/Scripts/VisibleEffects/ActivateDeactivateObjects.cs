@@ -11,7 +11,7 @@
 		public GameObject[] weaPart;
 		public GameObject[] scaleUpLabel;
 		public GameObject[] scaleDownLabel;
-		public bool inverse = false;
+		//public bool inverse = false;
 		public GameObject[] enableDisableLabel;
 		private bool visibility = true;
 		private float switchstate;
@@ -99,25 +99,31 @@
 			mat.color = currentColor;
 
 		}
-
+		//scale up und scale down vor skallierung abfragen wie der skalierungswert ist. sonst werden label auf 1 gesetzt und skalliert die eigentlich gerade null sind oder halt label aktivieren und deaktivieren
 		void ScaleUpLabel (float switchstate){
 			float localState = 1;
 			localState -= switchstate;
 
-			foreach (GameObject go in scaleUpLabel) {
+				foreach (GameObject go in scaleUpLabel) {
+				//if(go.transform.localScale.x < 0.1){
 				if (switchstate > 0.0001 && switchstate < 0.999) {
 					go.transform.localScale = new Vector3 (localState, localState, localState);
 				}
-			}
+				//}
+			
+				}
 		}
 		void ScaleDownLabel (float switchstate){
 			foreach (GameObject go in scaleDownLabel) {
-				if (switchstate > 0.0001 && switchstate < 0.999) {
-					go.transform.localScale = new Vector3 (switchstate, switchstate, switchstate);
-				}
+				//if (go.transform.localScale.x > 0.9) {
+					if (switchstate > 0.0001 && switchstate < 0.999) {
+						go.transform.localScale = new Vector3 (switchstate, switchstate, switchstate);
+					}
+				//}
 			}
 		}
 		void EnableDisableLabel (float switchstate){
+			/*
 			if (inverse == false) {
 				if (visibility == true && switchstate < 0.2) {
 					visibility = false;
@@ -126,14 +132,16 @@
 					visibility = true;
 				}
 			}
-			if (inverse == true) {
+
+*/
+			//if (inverse == true) {
 				if (visibility == true && switchstate > 0.999) {
 					visibility = false;
 				}
 				if (visibility == false && switchstate < 0.999) {
 					visibility = true;
 				}
-			}
+		//	}
 
 			foreach (GameObject go in enableDisableLabel) {
 				go.SetActive (visibility);
