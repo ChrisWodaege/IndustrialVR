@@ -4,6 +4,7 @@
 	using System.Collections.Generic;
 	using UnityEngine;
 	using VRTK.Controllables;
+	using VRTK.Examples;
 
 	public class ActivateDeactivateObjects : MonoBehaviour
 	{
@@ -11,15 +12,13 @@
 		public GameObject[] weaPart;
 		public GameObject[] scaleUpLabel;
 		public GameObject[] scaleDownLabel;
-		//public bool inverse = false;
 		public GameObject[] enableDisableLabel;
 		private bool visibility = true;
+
 		private float switchstate;
 		private float startValue = 90f;
 		private Material mat;
-
-
-
+	
 		void Start ()
 		{
 
@@ -27,11 +26,9 @@
 				Debug.Log (go.name);
 			}
 
-
 			foreach (GameObject go in scaleUpLabel) {
 				Debug.Log (go.name);
 			}
-
 
 			SetSwitchstateToStartValue ();
 		}
@@ -41,9 +38,8 @@
 			SetVisibility ();
 
 
+
 		}
-
-
 
 		void SetSwitchstateToStartValue ()
 		{
@@ -69,6 +65,7 @@
 			}
 			ScaleUpLabel (switchstate);
 			ScaleDownLabel (switchstate);
+			setSwitchDisplayText (switchstate);
 		
 		}
 
@@ -105,21 +102,16 @@
 			localState -= switchstate;
 
 				foreach (GameObject go in scaleUpLabel) {
-				//if(go.transform.localScale.x < 0.1){
 				if (switchstate > 0.0001 && switchstate < 0.999) {
 					go.transform.localScale = new Vector3 (localState, localState, localState);
 				}
-				//}
-			
-				}
+			}
 		}
 		void ScaleDownLabel (float switchstate){
 			foreach (GameObject go in scaleDownLabel) {
-				//if (go.transform.localScale.x > 0.9) {
-					if (switchstate > 0.0001 && switchstate < 0.999) {
-						go.transform.localScale = new Vector3 (switchstate, switchstate, switchstate);
-					}
-				//}
+				if (switchstate > 0.0001 && switchstate < 0.999) {
+					go.transform.localScale = new Vector3 (switchstate, switchstate, switchstate);
+				}
 			}
 		}
 		void EnableDisableLabel (float switchstate){
@@ -133,7 +125,7 @@
 				}
 			}
 
-*/
+			*/
 			//if (inverse == true) {
 				if (visibility == true && switchstate > 0.999) {
 					visibility = false;
@@ -147,5 +139,15 @@
 				go.SetActive (visibility);
 			}
 		}
-	}
+
+		void setSwitchDisplayText (float switchstate){
+			
+				if (switchstate > 0.5) {
+					switchGO.GetComponent<ControllableReactor> ().displayText.text = "ON";
+				} else {
+					switchGO.GetComponent<ControllableReactor> ().displayText.text = "OFF";
+				}
+		
+		}
+}
 }
