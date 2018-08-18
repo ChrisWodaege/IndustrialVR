@@ -1,0 +1,23 @@
+\chapter{Einführung}
+\section{Einleitung}
+
+Die vorliegende Arbeit beschäftigt sich mit der Fragestellung, ob und wie ein technisch konstruiertes CAD-Modell bspw. eine Maschine, ein Auto oder wie in diesem Fall eine Windenergieanlage (WEA) in das Echtzeitsystem Unity überführt werden kann. Dazu wird untersucht welche Möglichkeiten des Exportes professionelle Konstruktionsprogramme anbieten und wie die Qualität dieser 3D-Modelle beschaffen ist. Anhand eines Beispiels werden die Zwischenschritte einer Aufbereitung beschrieben und Vergleiche mit einer Software gezogen, die diese Aufbereitung automatisch übernimmt. An diesem Beispiel soll ebenfalls das Rigging und die Animierung in Maya sowie die Erstellung eines Prototypen in Unity demonstriert werden. 
+
+\newpage
+\section{Motivation}
+
+Ein guter Freund, ein Ingenieur aus dem Maschinenbau und leidenschaftlicher VR-Spieler trat mit einer Idee an mich heran. Er wolle eine von ihm und seiner Firma konstruierte Maschine gerne einmal in VR betrachten. Er wisse aber nicht wie eine solche Anwendung umzusetzen sei bzw. ob es überhaupt möglich sei. Ich schlug ihm vor, dass wir als Technologie Unity als Laufzeit- und Entwicklungsumgebung nutzen können. Nach einer kurzen Recherche  zur Kompatibilität von CAD-Formaten und den gängigen 3D-Formaten stellten wir fest, dass ein Import von CAD-Modellen generell möglich sein muss. Da die Firma aber wie zu erwarten der Weitergabe dieser Daten nicht zustimmte beschlossen wir auf ein Modell aus seinem Studium zurückzugreifen. Die von ihm und seinen Kommilitonen in einem Projekt konstruierte WEA stellt eine voll funktionsfähige Windenergieanlage zur Stromerzeugung dar. Dieses Modell konnten wir ohne Probleme in eine Unityszene importieren. Mehrere Probleme stellten wir allerdings fest. Zum ersten wies das Modell für eine Echtzeitanwendung eine extrem hohe  Anzahl an Polygonen auf. Zum zweiten war der geometrische Grundaufbau der WEA, die sogenannte Topologie nicht geeignet um ein gutes Shading in Unity zu ermöglichen. Zum dritten wurde die WEA zu einem Objekt zusammengefasst. Es ist also nicht möglich Baugruppen auszublenden, einzelnen Teilen verschiedene Shader zuzuweisen oder einzelne Teile zu animieren. Die WEA für einen VR-Prototypen zu optimieren schien mir daher ein geeignetes und spannendes Thema für dieses ICW. Natürlich kann auf diesem Wege ebenfalls evaluiert werden ob ein VR-Prototyp in einem technisch / industriellen Kontext überhaupt Sinn macht.  
+
+\newpage
+
+\section{Fachlicher Kontext}
+
+Strom aus Wind – so funktioniert es
+
+Der Energieträger Wind ist kostenlos und unbegrenzt verfügbar. Windenergieanlagen nutzen diesen „Rohstoff“, indem der Rotor der Anlage die Bewegungsenergie des Windes zunächst in mechanische Rotationsenergie umformt. Ein Generator wandelt diese anschließend in elektrische Energie um. Entscheidend für einen hohen Stromertrag sind vor allem hohe mittlere Windgeschwindigkeiten und die Größe der Rotorfläche. Bei zunehmender Höhe über dem Erdboden weht der Wind stärker und gleichmäßiger. Je höher die Windenergieanlage und je länger die Rotorblätter, desto besser kann die Anlage das Windenergieangebot ausnutzen.
+
+Windenergieanlagen haben sich bereits nach etwa drei bis sieben Monaten energetisch amortisiert. Das heißt, nach dieser Zeit hat die Anlage so viel Energie produziert wie für Herstellung, Betrieb und Entsorgung aufgewendet werden muss. Dies ist im Vergleich zu anderen erneuerbaren Energien sehr kurz. Konventionelle Energieerzeugungsanlagen amortisieren sich dagegen nie energetisch. Denn es muss im Betrieb immer mehr Energie in Form von Brennstoffen eingesetzt werden, als man an Nutzenergie erhält.
+
+Außerdem bietet die Windenergienutzung kurz- bis mittelfristig das wirtschaftlichste Ausbaupotenzial unter den erneuerbaren Energien. Die Stromerzeugung durch Windenergieanlagen spielt daher eine bedeutende Rolle für die Energiewende.\hyperref[label]{\cite{1}}
+
+
