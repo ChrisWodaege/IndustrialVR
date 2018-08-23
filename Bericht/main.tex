@@ -1,7 +1,10 @@
 \include{settings}
 
-%%Titles - Uncomment one section of titles
+\newcommand{\sieheKapitel}[1]{\glqq {#1}\grqq}
+\newcommand{\sieheAbb}[2]{(siehe Abb. {#1} -- {#2})}
 
+%%Titles - Uncomment one section of titles
+\usepackage[format=plain, justification=RaggedRight, singlelinecheck=false]{caption}
 %%Used for titleGraduation
 \include{titles/titleGraduation}
 \logoPathL{} %just leave empty to hide logo
@@ -49,7 +52,7 @@
 
 %%============== Neue Seiten ============== %%
 \input{chapter/Einführung} \clearpage
-
+\input{chapter/Hauptteil} \clearpage
 
 
 %%\input{chapter/Beispiele} \clearpage
@@ -58,10 +61,10 @@
 \pagenumbering{Alph}
 
 
-\input{chapter/Literatur} \clearpage
+\input{chapter/Literaturverzeichnis} \clearpage
 
 
-%\listoffigures \clearpage
+\listoffigures \clearpage
 %\listoftables \clearpage
 %\lstlistoflistings \clearpage
 %\printindex \clearpage
@@ -72,8 +75,9 @@
 %\printbibliography[heading=bibintoc, keyword={image}, title={Bildquellen}]\clearpage
 
 
+
 % Anhang
-\input{chapter/Anhang}
+%\input{chapter/Anhang}
 
 
 

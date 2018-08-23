@@ -6,18 +6,41 @@ Die vorliegende Arbeit beschäftigt sich mit der Fragestellung, ob und wie ein t
 \newpage
 \section{Motivation}
 
-Ein guter Freund, ein Ingenieur aus dem Maschinenbau und leidenschaftlicher VR-Spieler trat mit einer Idee an mich heran. Er wolle eine von ihm und seiner Firma konstruierte Maschine gerne einmal in VR betrachten. Er wisse aber nicht wie eine solche Anwendung umzusetzen sei bzw. ob es überhaupt möglich sei. Ich schlug ihm vor, dass wir als Technologie Unity als Laufzeit- und Entwicklungsumgebung nutzen können. Nach einer kurzen Recherche  zur Kompatibilität von CAD-Formaten und den gängigen 3D-Formaten stellten wir fest, dass ein Import von CAD-Modellen generell möglich sein muss. Da die Firma aber wie zu erwarten der Weitergabe dieser Daten nicht zustimmte beschlossen wir auf ein Modell aus seinem Studium zurückzugreifen. Die von ihm und seinen Kommilitonen in einem Projekt konstruierte WEA stellt eine voll funktionsfähige Windenergieanlage zur Stromerzeugung dar. Dieses Modell konnten wir ohne Probleme in eine Unityszene importieren. Mehrere Probleme stellten wir allerdings fest. Zum ersten wies das Modell für eine Echtzeitanwendung eine extrem hohe  Anzahl an Polygonen auf. Zum zweiten war der geometrische Grundaufbau der WEA, die sogenannte Topologie nicht geeignet um ein gutes Shading in Unity zu ermöglichen. Zum dritten wurde die WEA zu einem Objekt zusammengefasst. Es ist also nicht möglich Baugruppen auszublenden, einzelnen Teilen verschiedene Shader zuzuweisen oder einzelne Teile zu animieren. Die WEA für einen VR-Prototypen zu optimieren schien mir daher ein geeignetes und spannendes Thema für dieses ICW. Natürlich kann auf diesem Wege ebenfalls evaluiert werden ob ein VR-Prototyp in einem technisch / industriellen Kontext überhaupt Sinn macht.  
+Ein guter Freund, ein Ingenieur aus dem Maschinenbau und leidenschaftlicher VR-Spieler trat mit einer Idee an mich heran. Er wolle eine von ihm und seiner Firma konstruierte Maschine gerne einmal in VR betrachten. Er wisse aber nicht wie eine solche Anwendung umzusetzen sei bzw. ob es überhaupt möglich sei. Ich schlug ihm vor, dass wir als Technologie Unity als Laufzeit- und Entwicklungsumgebung nutzen können. Nach einer kurzen Recherche  zur Kompatibilität von CAD-Formaten und den gängigen 3D-Formaten stellten wir fest, dass ein Import von CAD-Modellen generell möglich sein muss. Da die Firma aber wie zu erwarten der Weitergabe dieser Daten nicht zustimmte beschlossen wir auf ein Modell aus seinem Studium zurückzugreifen. Die von ihm und seinen Kommilitonen in einem Projekt konstruierte WEA stellt eine voll funktionsfähige Windenergieanlage zur Stromerzeugung dar. Dieses Modell konnten wir ohne Probleme in eine Unityszene importieren. Mehrere Probleme stellten wir allerdings fest. Zum ersten wies das Modell für eine Echtzeitanwendung eine extrem hohe  Anzahl an Polygonen auf. Zum zweiten war der geometrische Grundaufbau der WEA, die sogenannte Topologie nicht geeignet um ein gutes Shading in Unity zu ermöglichen. Zum dritten wurde die WEA zu einem Objekt zusammengefasst. Es ist also nicht möglich Baugruppen auszublenden, einzelnen Teilen verschiedene Shader zuzuweisen oder einzelne Teile zu animieren. Die WEA für einen VR-Prototypen zu optimieren schien mir daher ein geeignetes und spannendes Thema für dieses ICW. Natürlich kann auf diesem Wege ebenfalls evaluiert werden ob ein VR-Prototyp in einem technisch-industriellen Kontext überhaupt Sinn macht.  Die Funktionsweise und der Aufbau dieser WEA werden im folgenden Unterkapitel \sieheKapitel{1.3 Fachlicher Kontext} beschrieben.
 
 \newpage
 
 \section{Fachlicher Kontext}
+\label{sec:FachlicherKontext}
+Die Funktionsweise einer WEA richtet sich vor allem nach der Bauart. Aber alle Anlagen erzeugen aus die Windenergie Strom. Die im Wind enthaltene Leistung überträgt sich auf den Rotor der Anlage, versetzt diesen in eine Drehbewegung und treibt den in der WEA verbauten Generator an. Es wird Windenergie umgewandelt in Mechanische Energie, welche dann in elektrische Energie umgewandelt wird. \\
+Generell sind Windenergieanlagen dafür konzipiert einen optimalen Energieertrag zu liefern. Diese Anlagen sind dabei unterschiedlichen Windbedingungen ausgesetzt, weshalb diese sich automatisch darauf reagieren müssen um zu einer stabilen und sicheren Stromversorgung beizutragen.\footnote{Vgl. Bundesverband WindEnergie e. V.  (2018): Funktionsweise von Windenergieanlagen,\newline
+\url{https://www.wind-energie.de/themen/anlagentechnik/funktionsweise/},\newline 
+abgerufen am 20.08.2018.}  
 
-Strom aus Wind – so funktioniert es
 
-Der Energieträger Wind ist kostenlos und unbegrenzt verfügbar. Windenergieanlagen nutzen diesen „Rohstoff“, indem der Rotor der Anlage die Bewegungsenergie des Windes zunächst in mechanische Rotationsenergie umformt. Ein Generator wandelt diese anschließend in elektrische Energie um. Entscheidend für einen hohen Stromertrag sind vor allem hohe mittlere Windgeschwindigkeiten und die Größe der Rotorfläche. Bei zunehmender Höhe über dem Erdboden weht der Wind stärker und gleichmäßiger. Je höher die Windenergieanlage und je länger die Rotorblätter, desto besser kann die Anlage das Windenergieangebot ausnutzen.
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.7\textwidth}
+	\includegraphics[keepaspectratio, width=0.7\textwidth]{bildquellen/WEA1_1}
+	\caption{Aufbau einer WEA.}
+	\label{fig:1}
+\end{figure}
 
-Windenergieanlagen haben sich bereits nach etwa drei bis sieben Monaten energetisch amortisiert. Das heißt, nach dieser Zeit hat die Anlage so viel Energie produziert wie für Herstellung, Betrieb und Entsorgung aufgewendet werden muss. Dies ist im Vergleich zu anderen erneuerbaren Energien sehr kurz. Konventionelle Energieerzeugungsanlagen amortisieren sich dagegen nie energetisch. Denn es muss im Betrieb immer mehr Energie in Form von Brennstoffen eingesetzt werden, als man an Nutzenergie erhält.
+Der äußere Aufbau ist gekennzeichnet durch ein Gehäuse (Gondel) mit montierter Windrichtungsnachführung \sieheAbb{1.1}{2} sowie einer am Windfahnenhebel angebrachten Windfahne \sieheAbb{1.1}{1}. Der Aufbau ist drehend gelagert um auch bei wechselnden Windverhältnissen einen vollautomatischen Betrieb zu gewährleisten. Ein solches Regelungssystem ist für einen zuverlässigen Betrieb unabdingbar. \\
+Der Rotor mit an der Narbe montierten Rotorblättern \sieheAbb{1.1}{3} ist nach aerodynamischen Prinzipien konstruiert und dient der Umwandlung der im Wind verfügbaren kinetischen Energie in mechanische Rotationsenergie.\footnote{Vgl. Chemnitz, Silvio / Donner, Sylvio / Hinze, Florian / Mojem, Mats / Quandt, Patrick / Seidler, Oliver / Will, Moritz / Wuthe, Jens  (2013): Windpumpsysteme zur dezentralen Energieversorgung von Abwassersystemen, TU Berlin, S. 10 ff.}
 
-Außerdem bietet die Windenergienutzung kurz- bis mittelfristig das wirtschaftlichste Ausbaupotenzial unter den erneuerbaren Energien. Die Stromerzeugung durch Windenergieanlagen spielt daher eine bedeutende Rolle für die Energiewende.\hyperref[label]{\cite{1}}
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.7\textwidth}
+	\includegraphics[keepaspectratio, width=0.7\textwidth]{bildquellen/WEA2_2}
+	\caption{Aufbau einer WEA im Detail.}
+	\label{fig:2}
+\end{figure}
+
+Ein Generator ist für die Stromerzeugung eingebaut \sieheAbb{1.2}{4}. Dieser wandelt auf Basis des Induktionsgesetzes mechanische Rotationsenergie in elektrische Energie um. Es wird eine Spule in einem Magnetfeld in Rotation versetzt. Durch die Rotation wird an den Klemmen der Spule eine Sinusförmige Spannung induziert.\footnote{Vgl. Prof. Dr. Buch, G. / Prof. Dr. Krug, M.  (2012): Kurzskriptum zur Lehrveranstaltung „Elektrische Bordnetze“ im Studiengang Fahrzeugtechnik, Hochschule München, S. 1.1.} In unserem Beispiel erhält der Generator die verfügbare Rotationsenergie über die Welle \sieheAbb{1.2}{8}, die mit einer Kupplung am Anker (Rotor) des Generators verbunden ist. Zur Kühlung während des Betriebs sind auf der Außenseite Finnen aus Aluminium angebracht.\\
+Die Lagerung wird über zwei Wälzlager realisiert und als Fest-Los-Lagerung bezeichnet. Das Loslager ist ein Pendelkugellager \sieheAbb{1.2}{5} und dient zur Aufnahme der Radialkräfte, sprich die Kräfte die von außen auf die Welle wirken. Als Festlager dient ein Pendelrollenlager, \sieheAbb{1.2}{7} dass die kombinierten Axial- und Radialbelastungen aufnimmt. Unter Axialkraft versteht man die Belastung die längs der Achse wirkt.
+Müssen Wartungsarbeiten o.ä. an der WEA durchgeführt werden kann automatisches Anlaufen durch eine Bremse \sieheAbb{1.2}{6} verhindert werden. Mithilfe eines Bowdenzuges, also einem Seilzug der mechanische Kraft auf ein bewegliches Maschinenelement, in diesem Fall den Bremsbolzen überträgt, kann die WEA vom Boden aus veriegelt werden. \\
+Die hier betrachtete WEA zählt zu den kleineren Modellen und hat eine Narbenhöhe von 10m. Der Turm, welcher in diesem Prototyp aus Darstellungsgründen nicht berücksichtigt wird weist eine Höhe von 9,73m auf.\footnote{Vgl. Chemnitz, Silvio / Donner, Sylvio / Hinze, Florian / Mojem, Mats / Quandt, Patrick / Seidler, Oliver / Will, Moritz / Wuthe, Jens  (2013): Windpumpsysteme zur dezentralen Energieversorgung von Abwassersystemen, TU Berlin, S. 35--38, 44.} 
+   
 
 
