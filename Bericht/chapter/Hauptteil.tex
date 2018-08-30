@@ -40,26 +40,44 @@ abgerufen am 23.08.2018.}
 
 \subsection{Analyse des CAD-Exports}
 \label{subsec:AnalyseDesCAD-Exports}
-Bevor das aus CAD exportierte Modell in Unity importiert wird sollte selbiges vorher in einem geeigneten 3D-Programm überprüft werden. Für diesen Zweck habe ich auf Autodesk Maya zurückgegriffen. Maya ist eine professionelle Software für Modellierung, Animation und Rendering von 3D Objekten und Szenen.\footnote{Vgl. Autodesk  (2018): \textit{MAYA}.\newline
+Bevor das aus CAD exportierte Modell in Unity importiert wird sollte selbiges vorher in einem geeigneten 3D-Programm überprüft werden. Für diesen Zweck wird im Rahmen dieser Arbeit auf Autodesk Maya zurückgegriffen. Maya ist eine professionelle Software für Modellierung, Animation und Rendering von 3D Objekten und Szenen.\footnote{Vgl. Autodesk  (2018): \textit{MAYA}.\newline
 \url{https://www.autodesk.de/products/maya/overview},\newline 
 abgerufen am 30.08.2018.}
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=1\textwidth}
 	\includegraphics[keepaspectratio, width=1\textwidth]{bildquellen/WEA-Vergleich1}
-	\caption{Ergebnis des Exportes der WEA aus der CAD-Anwendung bestehnd aus 494.988 Polygonen.}
+	\caption{Ergebnis des Exportes der WEA aus der CAD-Anwendung bestehend aus 494.988 Polygonen.}
 	\label{fig:2.1}
 \end{figure}
-Das importierte Modell \sieheAbb{2.1} weist mehrere Eigenschaften auf, welche es für einen Import sowie eine Weiterverarbeitung in Unity ungeeignet machen. Einerseits besteht das Modell aus nicht ganz 500.000 Polygonen, was für eine Echtzeitanwendung sehr viel ist. 
-Andererseits besteht das Modell aus vielen Einzelobjekten, welche zu einem einzigen zusammengefasst sind. Es ist also nicht möglich einzelne Teilobjekte separat mit Materialien auszustatten oder zu Animieren.  
-Ferner führt die ungleichmäßige Flächenverteilung zu Darstellungsfehlern beim Shading.
+Das importierte Modell \sieheAbb{2.1} weist mehrere Eigenschaften auf, welche es für einen Import sowie eine Weiterverarbeitung in Unity ungeeignet machen. Die betreffenden Eigenschaften sind nachfolgend aufgelistet. 
+Generell sollten Modelle mit möglichst wenigen Polygonen auskommen, da ein hoher Detailgrad über Texturen generiert werden kann. Im Falle einer technischen Darstellung die neben der äußeren Verkleidung auch innenliegende technische Baugruppen wie Wälzlager, Getriebe o.ä. abbildet, kann dass die Anzahl der Polygone deutlich erhöhen. Schließlich müssen diese in adäquater Qualität dargestellt werden. Natürlich gilt aber auch hier der Grundsatz, dass eine zu geringe Anzahl zu lasten der Darstellungsqualität und eine zu hohe Anzahl zu lasten der Performance geht. Es gilt also einen guten Mittelweg zu finden. 
 
 
+\begin{itemize}
+\item \textbf{Polygon count:} Das Modell besteht aus nicht ganz 500.000 Polygonen, was für eine Echtzeitanwendung sehr viel ist. Laut der Unity Dokumentation sollte der Polycount von dem Zielsystem und der angestrebten Qualität abhängig sein. Das Optimum liegt für Desktopanwendungen bei 1500 bis 4000 Polygonen pro Objekt. Falls sehr viele Objekte zur selben Zeit aktiv sind wird eine Reduktion der Polygone empfohlen.\footnote{Vgl. Unity Documentation  (2018): \textit{Modeling characters for optimal performance}.\newline
+\url{https://docs.unity3d.com/Manual/ModelingOptimizedCharacters.html},\newline 
+abgerufen am 30.08.2018.}     
+
+\item \textbf{Unterteilung in Einzelobjekte:} Die WEA setzt sich aus vielen Einzelobjekten zusammen. Diese sind vom großen Rotorblatt bis zur kleinsten Schraube zu einem einzigen Objekt zusammengefasst. Es ist also nicht möglich einzelne Teilobjekte in Unity separat mit Materialien und Skripten auszustatten oder zu Animieren.  
+
+\item \textbf{Flächenverteilung:} Ferner führt die ungleichmäßige Flächenverteilung im STL Export zu Darstellungsfehlern beim Shading \sieheAbb{2.2}.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=1\textwidth}
+	\includegraphics[keepaspectratio, width=1\textwidth]{bildquellen/WEAfehlerhaftesshading}
+	\caption{Shadingfehler am Exportmodell.}
+	\label{fig:2.2}
+\end{figure}
+
+Um diese Probleme zu lösen ist eine Retopologisierung also eine Überarbeitung der Geometrischen Grundstruktur und eine damit einhergehende Reduktion der Flächen nötig.
 
 \begin{figure}[H]
 	\centering
 	\captionsetup{width=1\textwidth}
 	\includegraphics[keepaspectratio, width=1\textwidth]{bildquellen/WEA-Vergleich2}
 	\caption{Ergebnis der Retopologisierung bestehend aus 12.182 Polygonen.}
-	\label{fig:2.2}
+	\label{fig:2.3}
 \end{figure}
