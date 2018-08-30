@@ -31,7 +31,7 @@ abgerufen am 23.08.2018.}
 
 
 
-
+\clearpage
 
 \section{Aufbereitung der 3D-CAD Daten}
 \label{sec:AufbereitungDer3D-CADDaten}
@@ -40,3 +40,26 @@ abgerufen am 23.08.2018.}
 
 \subsection{Analyse des CAD-Exports}
 \label{subsec:AnalyseDesCAD-Exports}
+Bevor das aus CAD exportierte Modell in Unity importiert wird sollte selbiges vorher in einem geeigneten 3D-Programm überprüft werden. Für diesen Zweck habe ich auf Autodesk Maya zurückgegriffen. Maya ist eine professionelle Software für Modellierung, Animation und Rendering von 3D Objekten und Szenen.\footnote{Vgl. Autodesk  (2018): \textit{MAYA}.\newline
+\url{https://www.autodesk.de/products/maya/overview},\newline 
+abgerufen am 30.08.2018.}
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=1\textwidth}
+	\includegraphics[keepaspectratio, width=1\textwidth]{bildquellen/WEA-Vergleich1}
+	\caption{Ergebnis des Exportes der WEA aus der CAD-Anwendung bestehnd aus 494.988 Polygonen.}
+	\label{fig:2.1}
+\end{figure}
+Das importierte Modell \sieheAbb{2.1} weist mehrere Eigenschaften auf, welche es für einen Import sowie eine Weiterverarbeitung in Unity ungeeignet machen. Einerseits besteht das Modell aus nicht ganz 500.000 Polygonen, was für eine Echtzeitanwendung sehr viel ist. 
+Andererseits besteht das Modell aus vielen Einzelobjekten, welche zu einem einzigen zusammengefasst sind. Es ist also nicht möglich einzelne Teilobjekte separat mit Materialien auszustatten oder zu Animieren.  
+Ferner führt die ungleichmäßige Flächenverteilung zu Darstellungsfehlern beim Shading.
+
+
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=1\textwidth}
+	\includegraphics[keepaspectratio, width=1\textwidth]{bildquellen/WEA-Vergleich2}
+	\caption{Ergebnis der Retopologisierung bestehend aus 12.182 Polygonen.}
+	\label{fig:2.2}
+\end{figure}
