@@ -1,8 +1,10 @@
 \include{settings}
 
 \newcommand{\sieheKapitel}[1]{\glqq {#1}\grqq}
-\newcommand{\sieheAbb}[2]{(siehe Abb. {#1} -- {#2})}
-
+\newcommand{\sieheAbbVerweis}[2]{(siehe Abb. {#1} -- {#2})}
+\newcommand{\sieheAbb}[1]{(siehe Abb. {#1})}
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
 %%Titles - Uncomment one section of titles
 \usepackage[format=plain, justification=RaggedRight, singlelinecheck=false]{caption}
 %%Used for titleGraduation
@@ -20,7 +22,7 @@
 %\researchPart{A}
 
 %%Used by all titles
-\title{IndustrialVR - Erstellung einer Virtual Reality Anwendung mit Unity auf Basis von 3D-CAD Daten.}
+\title{IndustrialVR -- Erstellung einer Virtual Reality Anwendung mit Unity auf Basis von 3D-CAD Daten.}
 \author{Chris Wodäge}
 \matrikelnr{s0560597} % just leave empty to hide number
 \submitDate{05.10.2015}
@@ -45,10 +47,14 @@
 \null\thispagestyle{empty}
 \pagenumbering{Roman}
 \input{chapter/Eigenstaendigkeitserklaerung}
-\input{chapter/Abkürzungsverzeichnis} \clearpage
+\input{chapter/Abkürzungsverzeichnis} 
+
+%Abbildungen
+\listoffigures \clearpage
 
 \tableofcontents \newpage
 \pagenumbering{arabic}
+
 
 %%============== Neue Seiten ============== %%
 \input{chapter/Einführung} \clearpage
@@ -60,11 +66,13 @@
 %%Verzeichnisse
 \pagenumbering{Alph}
 
-
+%Literatur
 \input{chapter/Literaturverzeichnis} \clearpage
 
 
-\listoffigures \clearpage
+% Anhang
+\input{chapter/Anhang} \clearpage
+
 %\listoftables \clearpage
 %\lstlistoflistings \clearpage
 %\printindex \clearpage
@@ -73,12 +81,6 @@
 %\printbibliography[heading=bibintoc, keyword={book}, title={Literaturverzeichnis}]\clearpage
 %\printbibliography[heading=bibintoc, keyword={online}, title={Onlinequellen}]\clearpage
 %\printbibliography[heading=bibintoc, keyword={image}, title={Bildquellen}]\clearpage
-
-
-
-% Anhang
-%\input{chapter/Anhang}
-
 
 
 \end{document}
