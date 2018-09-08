@@ -1,0 +1,49 @@
+\chapter{Datenverarbeitung in CAD}
+\section{Anwendungsbereiche von CAD}
+\label{sec:DatenverarbeitungInCAD}
+
+Die Grundlage dieser Arbeit sowie des Prototypen bilden Daten, welche in 3D-CAD-Programmen erstellt wurden. Daher wird im Rahmen dieser Arbeit CAD als Synonym für 3D-CAD verwendet. Im Gegensatz zu 2D-CAD Systemen können in 3D-CAD Systemen Produkte realer konstruiert werden. Das kann sich positiv auf die Entwicklungszeit auswirken. Kollisionsbetrachtungen ermöglichen eine Fehlererkennung, bevor das erste Teil gefertigt wird.\footnote{Vgl. Dipl. Ing. (FH) Bettina Clauß, Helmut Prof. Dr.-Ing. von Eiff (2013): \textit{CAD Grundkurs}. Hochschule Esslingen, S. 2.} Es ist möglich in CAD anhand von Materialeigenschaften physikalische Eigenschaften wie z.B. Festigkeit, Elastizität etc. zu simulieren. Aufgrund dieser Flexibilität sind CAD-Programme heute in fast allen technischen Zweigen vertreten, darunter Architektur, Bauingenieurwesen, Maschinenbau, Elektrotechnik bis hin zur Zahntechnik.\footnote{Vgl. Wikipedia  (2018): \textit{CAD}.\newline
+\url{https://de.wikipedia.org/w/index.php?title=CAD&oldid=178934444},\newline 
+abgerufen am 23.08.2018.}
+
+
+\section{3D-Modellierung in CAD}
+\label{sec:3D-ModellierungInCAD}
+In einer 3D-Umgebung werden Modelle in dreidimensionaler Form modelliert und persistiert. Ein dreidimensionaler Aufbau ermöglicht das Nachbilden einer realitätsnahen Darstellung, das Rendern aus allen Blickwinkeln und Perspektiven sowie eine bessere räumliche Betrachtung. Das Hauptaugenmerk des Ingenieurs liegt dabei vor allem auf Funktionalitäten wie dem technischen Zeichnen, die Erstellung von Arbeitspläne, Montage- und Bedienungsanleitungen oder der technisch visuellen Darstellung, wie der Kollisionsbetrachtung oder der
+Zusammenbau-, Einbau- und Montageuntersuchungen. 
+Die in dieser Arbeit thematisierte Betrachtung bezieht sich vor allem auf die Nutzung außerhalb der CAD-Umgebung.  Der Vollständigkeit werden nachfolgend alle rechnerinternen Repräsentationen die in CAD vorliegen betrachtet.
+
+\begin{itemize}
+\item \textbf{Kantenmodelle:} Kantenmodelle (auch Drahtgitter oder Wireframe) repräsentieren ein Objekt anhand von Kanten. Diese Darstellung enthält keinerlei Informationen über die Flächen oder das Volumen eines Körpers. Kantenmodelle dienen häufig als Hilfsgeometrie, zu Erzeugung von Flächen oder als Darstellungsart von Volumen- oder Flächenmodellen.
+
+\item \textbf{Flächenmodelle:} Als Flächenmodelle werden \glqq hohle\grqq\ Objekte bezeichnet, deren äußere Form durch Flächen beschrieben wird. Eine intuitive Anpassung der Objekthülle ist mit Hilfe von Kontrollpunkten oder Kontrollnetzen ohne Einschränkung möglich. Unter Zuhilfenahme von analytisch beschreibbarer (Translationsflächen, Regelflächen) sowie analytisch nicht beschreibbarer Flächen (B-spline-, NURBS-Flächen) lassen sich jegliche Formen modellieren.
+
+\item \textbf{Volumenmodelle:} Unter Volumenmodelle versteht man Körper, die neben einer Hülle auch eine Materialdichte besitzen, woraus das System automatisch eine Masse interpretiert. Auf diese Weise bleibt die geometrische Konsistenz bei Manipulation des Objektes erhalten. Aufgrund dieses zusätzlichen Parameters kann ein hoher Grad an Automatisierung sichergestellt werden. Es können Eigenschaften wie Trägheit, Schwerpunkt, Gewicht etc. durch das CAD-System automatisch abgeleitet und als Parameter für Simulationen übergeben werden.  
+\end{itemize}
+
+Auf alle beschriebenen Modelle lassen sich räumliche Operationen wie Translation, Rotation und Skallierung anwenden. Zusätzlich existieren für jedes Modell spezielle Werkzeuge um diese zu verformen, zu zerschneiden, zu verdrehen oder anderweitig zu manipulieren.\footnote{Vgl. Wikipedia  (2018): \textit{CAD}.\newline
+\url{https://de.wikipedia.org/w/index.php?title=CAD&oldid=178934444},\newline 
+abgerufen am 23.08.2018.} 
+
+\section{Exportformat in CAD}
+\label{sec:ExportformatInCAD}
+
+Für den Export aus SolidWorks einem 3D-CAD-Programm des französischen Softwareentwicklers Dassault Systèmes musste ein Dateiformat gefunden werden, dass auch von einem gängigen 3D-Programm gelesen werden kann. Als alternivlos hat sich STL erwiesen. Das Ergebnis des Exportes war nicht optimal (siehe \sieheKapitel{\hyperref[sec:AnalyseDesCAD-Exports]{3.2 Analyse des CAD-Exports}}). Nichtsdestotrotz hat die Übertragung schnell und ohne essentiellen Informationsverlust funktioniert.
+STL -- Standard Transformation Language,  Surface Tessellation Language oder Standard Triangulation Language ist einer der ältesten und im Kontext des 3D-Druckes das gängiste Format.  
+STL beschreibt die Oberfläche eines Objektes näherungsweise durch Triangulation mit unterschiedlich großen Dreiecken. Der Datensatz besteht aus den Koordinaten der Eckpunkte jedes Dreiecks sowie dessen Normalenvektor \sieheCA{2.1\footnote{Dave Touretzky (o.J.): \textit{STL Files and Slicing Software}. Carnegie Mellon University Pittsburgh, Pennsylvania, S. 5.}}.\footnote{Vgl. Heiko Heckner, Marco Wirth (2014): \textit{Vergleich von Dateiformatenfür 3D-Modelle}. Julius-Maximilians-Universität Würzburg, S. 8.}
+
+
+\begin{lstlisting}[caption={STL ASCII Schema.}, captionpos=b, label={lst:STL ASCII}]
+solid <name>
+facet normal ni nj nk
+   outer loop
+      vertex v1x v1y v1z
+      vertex v2x v2y v2z
+      vertex v3x v3y v3z
+   endloop
+endfacet
+...
+endsolid <name>
+
+\end{lstlisting}
+
