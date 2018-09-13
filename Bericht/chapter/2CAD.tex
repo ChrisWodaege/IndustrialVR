@@ -30,7 +30,7 @@ abgerufen am 23.08.2018.}
 
 Für den Export aus SolidWorks einem 3D-CAD-Programm des französischen Softwareentwicklers Dassault Systèmes musste ein Dateiformat gefunden werden, dass auch von einem gängigen 3D-Programm gelesen werden kann. Als alternivlos hat sich STL erwiesen. Das Ergebnis des Exportes war nicht optimal (siehe \sieheKapitel{\hyperref[sec:AnalyseDesCAD-Exports]{3.2 Analyse des CAD-Exports}}). Nichtsdestotrotz hat die Übertragung schnell und ohne essentiellen Informationsverlust funktioniert.
 STL -- Standard Transformation Language,  Surface Tessellation Language oder Standard Triangulation Language ist einer der ältesten und im Kontext des 3D-Druckes das gängiste Format.  
-STL beschreibt die Oberfläche eines Objektes näherungsweise durch Triangulation mit unterschiedlich großen Dreiecken. Der Datensatz besteht aus den Koordinaten der Eckpunkte jedes Dreiecks sowie dessen Normalenvektor \sieheCA{2.1\footnote{Dave Touretzky (o.J.): \textit{STL Files and Slicing Software}. Carnegie Mellon University Pittsburgh, Pennsylvania, S. 5.}}.\footnote{Vgl. Heiko Heckner, Marco Wirth (2014): \textit{Vergleich von Dateiformatenfür 3D-Modelle}. Julius-Maximilians-Universität Würzburg, S. 8.}
+STL beschreibt die Oberfläche eines Objektes näherungsweise durch Triangulation mit unterschiedlich großen Dreiecken. Der Datensatz besteht aus den Koordinaten der Eckpunkte jedes Dreiecks sowie dessen Normalenvektor \sieheCA{2.1\footnote{Dave Touretzky (o.J.): \textit{STL Files and Slicing Software}. Carnegie Mellon University Pittsburgh, Pennsylvania, S. 5.}}.\footnote{Vgl. Heiko Heckner, Marco Wirth (2014): \textit{Vergleich von Dateiformaten für 3D-Modelle}. Julius-Maximilians-Universität Würzburg, S. 8.}
 
 
 \begin{lstlisting}[caption={STL ASCII Schema.}, captionpos=b, label={lst:STL ASCII}]
@@ -47,3 +47,4 @@ endsolid <name>
 
 \end{lstlisting}
 
+Da Autodesk Maya und andere (nicht CAD) 3D-Programme ausschließlich auf Basis von Flächenmodellen arbeiten, müssen keine weiteren Inforamtionen bzgl. des Modells übertragen werden.
