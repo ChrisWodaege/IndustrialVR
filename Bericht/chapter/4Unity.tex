@@ -20,7 +20,7 @@ abgerufen am 05.09.2018.}
 Die Szene setzt sich aus verschiedenen Komponenten zusammen, die sich grob in drei Kategorien einteilen lassen.
 
 \begin{itemize}
-\item \textbf{Schaltpult:} Das \glqq Schaltpult zur Anlagensteuerung\grqq\,  \sieheAbbVerweis{4.1}{1} erfüllt verschiedene Funktionalitäten, welche die Steuerung der WEA betreffen. Weitere Erläuterungen sind im nachfolgenden Kaptiel \sieheKapitel{\hyperref[sec:ImplementierteUsecases]{4.3 Implementierte Usecases}} beschrieben. 
+\item \textbf{Schaltpult:} Das \glqq Schaltpult zur Anlagensteuerung\grqq\,  \sieheAbbVerweis{4.1}{1} erfüllt verschiedene Funktionalitäten, welche die Steuerung der WEA betreffen. Weitere Erläuterungen sind im nachfolgenden Kaptiel \sieheKapitel{\hyperref[sec:ImplementierteAnwendungsfälle]{4.3 Implementierte Anwendungsfälle}} beschrieben. 
 
 \item \textbf{WEA:}  
 Das eigentliche Modell der WEA  \sieheAbbVerweis{4.1}{2} ist in der Szene platziert. Anhand dieses Modells soll die Funktionsweise verdeutlicht werden. Aktuell sind vor allem Mechanische Komponenten implementiert und animiert. In weiteren Iterationen könnte bspw. das Thema Stromerzeugung mit Hilfe eines Generator in die Visualisierung mit einbezogen werden. 
@@ -49,15 +49,36 @@ Um die Szene zu strukturieren wurde die hierarchische Gruppierung vom VRTK-Frame
 			\item[>]\textbf{[VRTK\_SDKSetups]:} Enthält die Konfigurationsobjekte der oben genannten SDKs inklusive CameraRig, welches Kopf (Kamera) und Hände (Controller) beinhaltet.  		
 		\end{itemize}
 	
-	\item[>] \textbf{[VRTK\_Scripts]}
-	
-	\item[>] \textbf{[SceneScripts]}
-	
-	\item[>] \textbf{SceneObjects}
+	\item[>] \textbf{[VRTK\_Scripts]:} Enthält obligatorische Skripte wie SceneSwitcher und die Konfigurationsskripte für die Controllersteuerung.
+					
+	\item[>] \textbf{[SceneScripts]:} Enthält optinale Skripte wie Teleporter, AvatarHandVisibility, Bodyphysics etc.
+	\item[>] \textbf{SceneObjects:} Enhält alle Scenenobjekte wie die Anlagensteuerung und die WEA.
 	\end{itemize}
 	
 \end{itemize}
 
-\section{Implementierte Usecases}
-\label{sec:ImplementierteUsecases}
-abc
+
+\section{Implementierte Anwendungsfälle}
+\label{sec:ImplementierteAnwendungsfälle}
+
+Im folgenden werden die implementierten Anwendungsfälle erläutert und deren Funktionalität beschrieben.
+
+\textbf{WEA Ein-/Ausschalten:} Der Anwendungsfall WEA Ein-/Ausschalten beschreibt die Start-/Stop-Animation der WEA. Per Default befindet sich der Rotor der WEA in Rotation, was die Idle-Animation ist. Bei Betätigung des Schalters wird eine Brems-Animation gestartet. Im bewegungslosen Zustand wird eine Situation ohne Wind oder ein Wartungsmodus simuliert. Während der Idle-Animation erzeugt die WEA Strom.
+
+\textbf{Hinweisschilder Ein-/Ausblenden:} Dieser Anwendungsfall beschreibt das  Ein-/Ausblenden der Hinweisschilder. Per Default sind die Hinweisschilder aktiviert. Die Funktionalität dient vor allem dazu die Übersicht zu verbessern, falls eine Betrachtung der Bauteile durch die Hinweisschilder erschwert wird. 
+
+Der Schalter gibt, je nach Winkel einen normalisierten Float-Wert zwischen 0 und 1 zurück. Dieser Wert wird an das Skalierungsattribut der Hinweisschilder übergeben und steuert so die Größe und dementsprechend die Sichtbarkeit.  
+
+\textbf{Baugruppen Ein-/Ausblenden:} Dieser Anwendungsfall bezieht sich auf mehrere Funktionalitäten, die sich auf das Ein- und Ausblenden von Bauteilen beziehen. Dies dient dazu Innere Baugruppen der WEA sichtbar zu machen, die sonst durch äußere verdeckt sind.
+
+Durch Betätigung des Schalters werden entsprechende Bauteile ausgefaded. Der Schalter übergibt einen normalisierten Float-Wert zwischen 0 und 1 an den Alpha-Kanal des Materials, welches dem auszublendenden Objekt zugewiesen ist. 1 entspricht dem Farbwert 255 (opak), 0 entspricht dem Farbwert 0 (volltransparent). Alle Werte zwischen 0 und 1 entsprechen Graustufen (halbtransparent). Auf diese Weise können Baugruppen ebenenweise zu- und abgeschaltet werden \sieheAbb{4.2}. 
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=1\textwidth}
+	\includegraphics[keepaspectratio, width=1\textwidth]{bildquellen/baugruppen_klein}
+	\caption{Zu- und abschaltbare Ebenen der WEA.}
+	\label{fig:4.2}
+\end{figure}
+
+
