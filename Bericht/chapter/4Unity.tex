@@ -6,11 +6,11 @@
 Für die Entwicklung des Prototypen wurde das  Virtual Reality Toolkit (VRTK) verwendet. VRTK ist ein Open-Source Framework für Unity mit dessen Hilfe es möglich ist, in kurzer Zeit eine voll funktionsfähige VR-Anwendung zu entwickeln. Das Projekt startete im April 2016 und wird seit dem weiterentwickelt.\footnote{Vgl. GitHub (2018): \textit{VRTK Code frequency}.\newline
 \url{https://github.com/thestonefox/VRTK/graphs/code-frequency},\newline 
 abgerufen am 06.09.2018.} 
-Ein großer Vorteil des VRTK-Frameworks ist laut seinem Initiator Harvey Ball (thestonefox) die Plattformunabhängigkeit. VRTK verfügt über eine Abstraktionsschicht die es ermöglicht, dass Komponenten für die Mechanik eines Spiels auf jedem unterstützen SDK funktionieren. Die Anwendung läuft auf SteamVR oder Oculus oder PSVR ohne zusätzlichen Programmieraufwand. Falls ein Projekt auf Basis von SteamVR entwickelt wird, man aber auf weitere Plattformen portieren möchte, so müssen Codeblöcke für andere SDKs umgeschrieben werden oder eben eine eigene Abstraktionsschicht entwickelt werden. Einige beliebte SteamVR Titel lassen sich laut Ball auch nicht ohne weiteres nach Oculus Home portieren. VRTK soll dieses Problem lösen.\footnote{Vgl. Ian Hamilton (2017): \textit{VRTK’s Open Source Tools Help New Developers Get Started In VR}.\newline
+Ein großer Vorteil des VRTK-Frameworks ist laut seinem Initiator Harvey Ball die Plattformunabhängigkeit. VRTK verfügt über eine Abstraktionsschicht die es ermöglicht, dass Komponenten für die Mechanik eines Spiels auf jedem unterstützen SDK funktionieren. Die Anwendung läuft auf SteamVR oder Oculus oder PSVR ohne zusätzlichen Programmieraufwand. Falls ein Projekt auf Basis von SteamVR entwickelt wird, man aber auf weitere Plattformen portieren möchte, so müssen Codeblöcke für andere SDKs umgeschrieben werden oder eben eine eigene Abstraktionsschicht entwickelt werden. Einige beliebte SteamVR Titel lassen sich laut Ball auch nicht ohne weiteres nach Oculus Home portieren. VRTK soll dieses Problem lösen.\footnote{Vgl. Ian Hamilton (2017): \textit{VRTK’s Open Source Tools Help New Developers Get Started In VR}.\newline
 \url{https://uploadvr.com/vrtk-stone-fox-unity-tool/},\newline 
 abgerufen am 06.09.2018.}
 Unterstützt werden gängige VR-Platformen wie die Oculus Rift, Windows Mixed Reality oder die HTC VIVE. Auch eine Anbindung an Steam über das SteamVR Plugin ist möglich und wurde im Rahmen dieser Arbeit verwendet. Falls gerade keine VR-Hardware zur Verfügung steht, kann die Anwendung über den integrierten VR-Simulator getestet werden. 
-Das VRTK-Framework implentiert die Grundlegenden Funktionalitäten, welche für eine VR-Anwendung benötigt werden. Dazu zählen unter anderem die Möglichkeit der Fortbewegung in einer Szene oder Interaktionen wie die Berührung, das Greifen und die Benutzung von Objekten.  Auch die Interaktion mit UI-Elementen durch Berührung oder mittels Pointer sind implementiert. Weiterhin ist die Benutzung von Kontrollelementen wie Buttons, Hebel, Türen, Schubladen etc. möglich und kann, wenn nötig an gegebene Anforderungen angepasst.\footnote{Vgl. GitHub (2018): \textit{VRTK - Virtual Reality Toolkit}.\newline
+Das VRTK-Framework implementiert die Grundlegenden Funktionalitäten, welche für eine VR-Anwendung benötigt werden. Dazu zählen unter anderem die Möglichkeit der Fortbewegung in einer Szene oder Interaktionen wie die Berührung, das Greifen und die Benutzung von Objekten.  Auch die Interaktion mit UI-Elementen durch Berührung oder mittels Pointer sind implementiert. Weiterhin ist die Benutzung von Kontrollelementen wie Buttons, Hebeln, Türen, Schubladen etc. möglich. Diese können, wenn nötig an gegebene Anforderungen angepasst.\footnote{Vgl. GitHub (2018): \textit{VRTK - Virtual Reality Toolkit}.\newline
 \url{https://github.com/thestonefox/VRTK},\newline 
 abgerufen am 05.09.2018.}
 
@@ -20,12 +20,12 @@ abgerufen am 05.09.2018.}
 Die Szene setzt sich aus verschiedenen Komponenten zusammen, die sich grob in drei Kategorien einteilen lassen.
 
 \begin{itemize}
-\item \textbf{Schaltpult:} Das \glqq Schaltpult zur Anlagensteuerung\grqq\,  \sieheAbbVerweis{4.1}{1} erfüllt verschiedene Funktionalitäten, welche die Steuerung der WEA betreffen. Weitere Erläuterungen sind im nachfolgenden Kaptiel \sieheKapitel{\hyperref[sec:ImplementierteAnwendungsfälle]{4.3 Implementierte Anwendungsfälle}} beschrieben. 
+\item \textbf{Schaltpult:} Das \glqq Schaltpult zur Anlagensteuerung\grqq\,  \sieheAbbVerweis{4.1}{1} erfüllt verschiedene Funktionalitäten, welche die Steuerung der WEA betreffen. Weitere Erläuterungen sind im nachfolgenden Unterkapitel \sieheKapitel{\hyperref[sec:ImplementierteAnwendungsfälle]{4.3 Implementierte Anwendungsfälle}} beschrieben. 
 
 \item \textbf{WEA:}  
-Das eigentliche Modell der WEA  \sieheAbbVerweis{4.1}{2} ist in der Szene platziert. Anhand dieses Modells soll die Funktionsweise verdeutlicht werden. Aktuell sind vor allem Mechanische Komponenten implementiert und animiert. In weiteren Iterationen könnte bspw. das Thema Stromerzeugung mit Hilfe eines Generator in die Visualisierung mit einbezogen werden. 
+Das eigentliche Modell der WEA  \sieheAbbVerweis{4.1}{2} ist in der Szene platziert. Anhand dieses Modells soll die Funktionsweise verdeutlicht werden. Aktuell sind vor allem Mechanische Komponenten implementiert und animiert. In weiteren Iterationen könnte bspw. das Thema Stromerzeugung mithilfe eines Generator in die Visualisierung mit einbezogen werden. 
 
-\item \textbf{Hinweisschilder:} Die Hinweisschilder \sieheAbbVerweis{4.1}{3} dienen dazu, den Anwender über die Benennung der Komponenten zu informieren. Problematisch an dieser Darstellungsweise ist, dass zu viele Schilder auf einer zu kleinen Fläche sich gegenseitig überlagern können und dadurch die Lesbarkeit beeinträchtigt ist. Gerade an Stellen, an denen sich viele Komponenten auf kleinem Raum befinden ist dieses Problem aufgetreten.
+\item \textbf{Hinweisschilder:} Die Hinweisschilder \sieheAbbVerweis{4.1}{3} dienen dazu, den Anwender über die Benennung der Komponenten zu informieren. Problematisch an dieser Darstellungsweise ist, dass zu viele Schilder auf einer zu kleinen Fläche sich gegenseitig überlagern können und dadurch die Lesbarkeit beeinträchtigt ist. Auch können diese andere Komponenten verdecken und so eine Betrachtung der WEA erschweren. Gerade an Stellen, an denen sich viele Komponenten auf kleinem Raum befinden ist dieses Problem aufgetreten. Daher können die Hinweisschilder jederzeit ausgeblendet werden.
 
 \end{itemize}
   
@@ -37,7 +37,7 @@ Das eigentliche Modell der WEA  \sieheAbbVerweis{4.1}{2} ist in der Szene platzi
 	\label{fig:4.1}
 \end{figure}
 
-Um die Szene zu strukturieren wurde die hierarchische Gruppierung vom VRTK-Framework übernommen. Diese der Szene untergeordneten GameObjects enthalten alle wichtigen Komponenten, welche für VR-Anwendung erforderlich sind. Die Folgende Struktur soll den hierarchischen Szenenaufbau verdeutlichen.
+Um die Szene zu strukturieren wurde die hierarchische Gruppierung vom VRTK-Framework übernommen. Diese der Szene untergeordneten GameObjects enthalten alle wichtigen Komponenten, welche für das Funktionieren der VR-Anwendung erforderlich sind. Die Folgende Struktur soll den hierarchischen Szenenaufbau verdeutlichen.
 
 \begin{itemize}
 \item[>] \textbf{Szene} 
@@ -49,10 +49,10 @@ Um die Szene zu strukturieren wurde die hierarchische Gruppierung vom VRTK-Frame
 			\item[>]\textbf{[VRTK\_SDKSetups]:} Enthält die Konfigurationsobjekte der oben genannten SDKs inklusive CameraRig, welches Kopf (Kamera) und Hände (Controller) beinhaltet.  		
 		\end{itemize}
 	
-	\item[>] \textbf{[VRTK\_Scripts]:} Enthält obligatorische Skripte wie SceneSwitcher und die Konfigurationsskripte für die Controllersteuerung.
+	\item[>] \textbf{[VRTK\_Scripts]:} Enthält obligatorische Skripte wie die Konfigurationsskripte für die Controllersteuerung.
 					
-	\item[>] \textbf{[SceneScripts]:} Enthält optinale Skripte wie Teleporter, AvatarHandVisibility, Bodyphysics etc.
-	\item[>] \textbf{SceneObjects:} Enhält alle Scenenobjekte wie die Anlagensteuerung und die WEA.
+	\item[>] \textbf{[SceneScripts]:} Enthält optionale Skripte wie Teleporter, AvatarHandVisibility, Bodyphysics etc.
+	\item[>] \textbf{SceneObjects:} Enthält alle Szenenobjekte wie die Anlagensteuerung und die WEA.
 	\end{itemize}
 	
 \end{itemize}
@@ -61,17 +61,17 @@ Um die Szene zu strukturieren wurde die hierarchische Gruppierung vom VRTK-Frame
 \section{Implementierte Anwendungsfälle}
 \label{sec:ImplementierteAnwendungsfälle}
 
-Im folgenden werden die implementierten Anwendungsfälle erläutert und deren Funktionalität beschrieben.
+Im Folgenden werden die implementierten Anwendungsfälle erläutert und deren Funktionalität beschrieben.
 
-\textbf{WEA Ein-/Ausschalten:} Der Anwendungsfall WEA Ein-/Ausschalten beschreibt die Start-/Stop-Animation der WEA. Per Default befindet sich der Rotor der WEA in Rotation, was die Idle-Animation ist. Bei Betätigung des Schalters wird eine Brems-Animation gestartet. Im bewegungslosen Zustand wird eine Situation ohne Wind oder ein Wartungsmodus simuliert. Während der Idle-Animation erzeugt die WEA Strom.
+\textbf{WEA Ein-/Ausschalten:} Der Anwendungsfall WEA Ein-/Ausschalten beschreibt die Start-/Stopp-Animation der WEA. Per Default befindet sich der Rotor der WEA in Rotation, was die Idle-Animation ist. Bei Betätigung des Schalters wird eine Brems-Animation gestartet. Im bewegungslosen Zustand wird eine Situation ohne Wind oder ein Wartungsmodus simuliert. Während der Idle-Animation erzeugt die WEA Strom.
 
 \textbf{Hinweisschilder Ein-/Ausblenden:} Dieser Anwendungsfall beschreibt das  Ein-/Ausblenden der Hinweisschilder. Per Default sind die Hinweisschilder aktiviert. Die Funktionalität dient vor allem dazu die Übersicht zu verbessern, falls eine Betrachtung der Bauteile durch die Hinweisschilder erschwert wird. 
 
-Der Schalter gibt, je nach Winkel einen normalisierten Float-Wert zwischen 0 und 1 zurück. Dieser Wert wird an das Skalierungsattribut der Hinweisschilder übergeben und steuert so die Größe und dementsprechend die Sichtbarkeit.  
+Der Schalter gibt, je nach Winkel einen normalisierten Float-Wert zwischen 0,0 und 1,0 zurück. Dieser Wert wird an das Skalierungsattribut der Hinweisschilder übergeben und steuert so die Größe und dementsprechend die Sichtbarkeit.  
 
-\textbf{Baugruppen Ein-/Ausblenden:} Dieser Anwendungsfall bezieht sich auf mehrere Funktionalitäten, die sich auf das Ein- und Ausblenden von Bauteilen beziehen. Dies dient dazu Innere Baugruppen der WEA sichtbar zu machen, die sonst durch äußere verdeckt sind.
+\textbf{Baugruppen Ein-/Ausblenden:} Dieser Anwendungsfall bezieht sich auf mehrere Funktionalitäten, die das Ein- und Ausblenden von Bauteilen zur Folge haben. Dies dient dazu Innere Baugruppen der WEA sichtbar zu machen, die sonst durch äußere verdeckt sind.
 
-Durch Betätigung des Schalters werden entsprechende Bauteile ausgefaded. Der Schalter übergibt einen normalisierten Float-Wert zwischen 0 und 1 an den Alpha-Kanal des Materials, welches dem auszublendenden Objekt zugewiesen ist. 1 entspricht dem Farbwert 255 (opak), 0 entspricht dem Farbwert 0 (volltransparent). Alle Werte zwischen 0 und 1 entsprechen Graustufen (halbtransparent). Auf diese Weise können Baugruppen ebenenweise zu- und abgeschaltet werden \sieheAbb{4.2}. 
+Durch Betätigung des Schalters werden entsprechende Bauteile ausgefaded. Der Schalter übergibt einen normalisierten Float-Wert zwischen 0,0 und 1,0 an den Alpha-Kanal des Materials, welches dem auszublendenden Objekt zugewiesen ist. 1,0 entspricht dem Farbwert 255 (opak), 0,0 entspricht dem Farbwert 0 (volltransparent). Alle Werte zwischen 0,0 und 1,0 entsprechen Graustufen (halbtransparent). Auf diese Weise können Baugruppen ebenenweise zu- und abgeschaltet werden\sieheAbb{4.2}. 
 
 \begin{figure}[H]
 	\centering
