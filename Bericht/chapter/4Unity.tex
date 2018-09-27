@@ -63,6 +63,8 @@ Um die Szene zu strukturieren wurde die hierarchische Gruppierung vom VRTK-Frame
 
 Im Folgenden werden die implementierten Anwendungsfälle erläutert und deren Funktionalität beschrieben.
 
+\textbf{Rotation der WEA:} Die WEA kann mittels Trigger-Button rotiert werden, um diese von verschiedenen Seiten zu betrachten. 
+
 \textbf{WEA Ein-/Ausschalten:} Der Anwendungsfall WEA Ein-/Ausschalten beschreibt die Start-/Stopp-Animation der WEA. Per Default befindet sich der Rotor der WEA in Rotation, was die Idle-Animation ist. Bei Betätigung des Schalters wird eine Brems-Animation gestartet. Im bewegungslosen Zustand wird eine Situation ohne Wind oder ein Wartungsmodus simuliert. Während der Idle-Animation erzeugt die WEA Strom.
 
 \textbf{Hinweisschilder Ein-/Ausblenden:} Dieser Anwendungsfall beschreibt das  Ein-/Ausblenden der Hinweisschilder. Per Default sind die Hinweisschilder aktiviert. Die Funktionalität dient vor allem dazu die Übersicht zu verbessern, falls eine Betrachtung der Bauteile durch die Hinweisschilder erschwert wird. 
@@ -80,5 +82,17 @@ Durch Betätigung des Schalters werden entsprechende Bauteile ausgefaded. Der Sc
 	\caption{Zu- und abschaltbare Ebenen der WEA.}
 	\label{fig:4.2}
 \end{figure}
+\clearpage
+\section{Anforderungsmanagement}
+\label{sec:Anforderungsmanagement}
 
+Der Test der VR-Anwendung hat neue Anforderungen offengelegt, welche in weiteren Iterationen implementiert werden sollten. 
 
+\textbf{Feedback von interaktiven Elementen:} Um den VR-Nutzer auf Funktionalitäten hinzuweisen, die nicht über eine klassische UI verwendet werden, sollten interaktive Objekte zumindest bei Kollision mit einem Controller eingefärbt oder mit einer Outline gekennzeichnet sein. Das kann Frustration vermeiden, da der VR-Nutzer nicht jedes Objekt auf Interaktion testen muss.  
+ 
+\textbf{Verschiebbare Kontrollelemente:} In der aktuellen Implementierung ist die Steuerung der WEA über ein Schaltpult gelöst. Gerade in kleinen Räumen kann es durchaus Sinn machen das Kontrollpult zu verschieben oder zu drehen.
+
+\textbf{Mehrstufige Bedienelemente:} In der aktuellen Implementierung lassen sich Baugruppen der WEA stufenweise ab- und zuschalten. Dies ist im Unterkapitel \sieheKapitel{\hyperref[sec:ImplementierteAnwendungsfälle]{4.3 Implementierte Anwendungsfälle}} \sieheAbb{4.2} beschrieben. Dies geschieht mit drei separaten Schalthebeln, welche alle jeweils eine Ebene ab- oder zuschalten. Problematisch an dieser Umsetzung ist, dass verdeckte, nicht sichtbare Ebenen abgeschaltet werden können, es aber kein optisches Feedback gibt. 
+Besser wäre eine Umsetzung mit einem mehrstufigen Schalter, der nicht nur ein binäres an / aus unterstützt, sondern einen Schaltzustand pro schaltbarer Ebene. Technisch könnte das ähnlich einer Combobox mit einer Switch-Anweisung gelöst werden.
+
+\textbf{Interaktion mittels Pointer:} Zusätzlich zur Interaktion durch Contoller-Kollision sollte eine Interaktion mittels Laserpointer implementiert werden, um mit weiter entfernten Objekten zu interagieren.
