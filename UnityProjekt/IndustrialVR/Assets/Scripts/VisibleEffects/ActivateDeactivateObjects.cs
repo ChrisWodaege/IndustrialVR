@@ -13,6 +13,7 @@
 		public GameObject[] scaleUpLabel;
 		public GameObject[] scaleDownLabel;
 		public GameObject[] enableDisableLabel;
+		public GameObject[] feder;
 		public bool visibility = true;
 
 		private float switchstate;
@@ -54,8 +55,16 @@
 			foreach (GameObject go in weaPart) {
 
 				mat = go.GetComponent<Renderer> ().material;
-			
 
+				foreach (GameObject fether  in feder) {
+					
+				
+				if (switchstate > 0.5) {
+						fether.SetActive (true);
+				} else {
+						fether.SetActive (false);
+				}
+				}
 
 				if (switchstate > 0.999) {
 					FadeInObject (go);

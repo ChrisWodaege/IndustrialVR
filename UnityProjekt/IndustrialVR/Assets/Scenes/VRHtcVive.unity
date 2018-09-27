@@ -3700,6 +3700,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114290679398788930, guid: 19d6b0a7e7b9e9c41a401a185dd94e20,
         type: 2}
+      propertyPath: feder.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114290679398788930, guid: 19d6b0a7e7b9e9c41a401a185dd94e20,
+        type: 2}
       propertyPath: holdLabel.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -4012,6 +4017,16 @@ Prefab:
       propertyPath: m_LocalRotation.z
       value: 0.000000029802315
       objectReference: {fileID: 0}
+    - target: {fileID: 114290679398788930, guid: 19d6b0a7e7b9e9c41a401a185dd94e20,
+        type: 2}
+      propertyPath: feder
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114290679398788930, guid: 19d6b0a7e7b9e9c41a401a185dd94e20,
+        type: 2}
+      propertyPath: feder.Array.data[0]
+      value: 
+      objectReference: {fileID: 1358787404}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19d6b0a7e7b9e9c41a401a185dd94e20, type: 2}
   m_IsPrefabAsset: 0
@@ -4965,6 +4980,7 @@ MonoBehaviour:
   scaleUpLabel: []
   scaleDownLabel: []
   enableDisableLabel: []
+  feder: []
   visibility: 1
 --- !u!1 &720599658
 GameObject:
@@ -6057,6 +6073,7 @@ MonoBehaviour:
   - {fileID: 278019653}
   - {fileID: 1025961332}
   - {fileID: 1371836902}
+  feder: []
   visibility: 1
 --- !u!1 &907392347
 GameObject:
