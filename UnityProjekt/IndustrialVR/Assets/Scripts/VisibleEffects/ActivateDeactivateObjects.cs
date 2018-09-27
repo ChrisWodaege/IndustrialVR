@@ -13,7 +13,7 @@
 		public GameObject[] scaleUpLabel;
 		public GameObject[] scaleDownLabel;
 		public GameObject[] enableDisableLabel;
-		private bool visibility = true;
+		public bool visibility = true;
 
 		private float switchstate;
 		private float startValue = 90f;
@@ -55,7 +55,7 @@
 
 				mat = go.GetComponent<Renderer> ().material;
 			
-				EnableDisableLabel (switchstate);
+
 
 				if (switchstate > 0.999) {
 					FadeInObject (go);
@@ -66,7 +66,7 @@
 			ScaleUpLabel (switchstate);
 			ScaleDownLabel (switchstate);
 			setSwitchDisplayText (switchstate);
-		
+			EnableDisableLabel (switchstate);
 		}
 
 		void FadeInObject (GameObject go)
@@ -115,25 +115,14 @@
 			}
 		}
 		void EnableDisableLabel (float switchstate){
-			/*
-			if (inverse == false) {
-				if (visibility == true && switchstate < 0.2) {
-					visibility = false;
-				}
-				if (visibility == false && switchstate > 0.8) {
+			Debug.Log (visibility);
+				if (switchstate > 0.5) {
 					visibility = true;
 				}
-			}
-
-			*/
-			//if (inverse == true) {
-				if (visibility == true && switchstate > 0.999) {
+				if (switchstate < 0.5) {
 					visibility = false;
 				}
-				if (visibility == false && switchstate < 0.999) {
-					visibility = true;
-				}
-		//	}
+	
 
 			foreach (GameObject go in enableDisableLabel) {
 				go.SetActive (visibility);
