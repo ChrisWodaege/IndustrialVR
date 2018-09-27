@@ -1,7 +1,17 @@
 \chapter{Einführung}
 \section{Einleitung}
 \label{sec:Einleitung}
-Die vorliegende Arbeit beschäftigt sich mit der Fragestellung, ob und wie ein technisch konstruiertes CAD-Modell bspw. eine Maschine, ein Auto oder wie in diesem Fall eine Windenergieanlage (WEA) in das Echtzeitsystem Unity überführt werden kann. Dazu wird untersucht welche Möglichkeiten des Exportes professionelle Konstruktionsprogramme anbieten und wie die Qualität dieser 3D-Modelle beschaffen ist. Anhand eines Beispiels werden die Zwischenschritte einer Aufbereitung beschrieben und Vergleiche mit einer Software gezogen, die diese Aufbereitung automatisch übernimmt. An diesem Beispiel soll ebenfalls das Rigging und die Animierung in Maya sowie die Erstellung eines Prototypen in Unity demonstriert werden. 
+Die vorliegende Arbeit beschäftigt sich mit der Fragestellung, ob und wie ein technisch konstruiertes CAD-Modell bspw. eine Maschine, ein Auto oder wie in diesem Fall eine Windenergieanlage (WEA) in das Echtzeitsystem Unity überführt werden kann, um aus diesem Modell eine VR-Anwendung zu entwickeln.
+ 
+Zunächst wird in Kapitel 1 die Motivation zu dieser Arbeit kurz erläutert und mit Hilfe eines fachlichen Teils zur Funktion und zum Aufbau der WEA das Thema eingeleitet. 
+
+Weiterhin sollen in Kapitel 2 die Anwendungsbereiche von CAD-Programmen und die Möglichkeiten der 3D-Modellierung beschrieben werden. Darauf aufbauend wird auf den Transfer von CAD nach Autodesk Maya anhand des Exportformates eingegangen.
+
+Das Kapitel 3 wird sich zum ersten mit einigen Grundbegriffen der 3D-Modellierung beschäftigen. Diese Grundlagen sind essentiell für die Analyse des CAD-Exports. Auch die Aufbereitung des 3D-Modells für den Import in Unity wird behandelt.
+
+Kapitel 4 wird den Bereich um Unity abdecken. Hierzu wird das Open-Source Framework VRTK zur Erstellung einer VR-Anwendung untersucht, der Szenenaufbau in Unity beschrieben und die implementierten Anwendungsfälle gelistet.
+
+Zuletzt soll in Kapitel 5 ein Fazit gezogen werden sowie ein Ausblick auf weitere Funktionalitäten gegeben werden.
 
 \newpage
 \section{Motivation}
@@ -40,9 +50,9 @@ Der Rotor mit an der Narbe montierten Rotorblättern \sieheAbbVerweis{1.1}{3} is
 	\label{fig:2}
 \end{figure}
 
-Ein Generator ist für die Stromerzeugung eingebaut \sieheAbbVerweis{1.2}{4}. Dieser wandelt auf Basis des Induktionsgesetzes mechanische Rotationsenergie in elektrische Energie um. Es wird eine Spule in einem Magnetfeld in Rotation versetzt. Durch die Rotation wird an den Klemmen der Spule eine Sinusförmige Spannung induziert.\footnote{Vgl. Prof. Dr. G. Buch, Prof. Dr. M. Krug  (2012): \textit{Kurzskriptum zur Lehrveranstaltung „Elektrische Bordnetze“ im Studiengang Fahrzeugtechnik}. Hochschule München, S. 1.1.} In unserem Beispiel erhält der Generator die verfügbare Rotationsenergie über die Welle \sieheAbbVerweis{1.2}{8}, die mit einer Kupplung am Anker (Rotor) des Generators verbunden ist. Zur Kühlung während des Betriebs sind auf der Außenseite Finnen aus Aluminium angebracht.\\
+Ein Generator ist für die Stromerzeugung eingebaut \sieheAbbVerweis{1.2}{4}. Dieser wandelt auf Basis des Induktionsgesetzes mechanische Rotationsenergie in elektrische Energie um. Es wird eine Spule in einem Magnetfeld in Rotation versetzt. Durch die Rotation wird an den Klemmen der Spule eine Sinusförmige Spannung induziert.\footnote{Vgl. Prof. Dr. G. Buch, Prof. Dr. M. Krug  (2012): \textit{Kurzskriptum zur Lehrveranstaltung „Elektrische Bordnetze“ im Studiengang Fahrzeugtechnik}. Hochschule München, S. 1.1.} In diesem Beispiel erhält der Generator die verfügbare Rotationsenergie über eine Welle \sieheAbbVerweis{1.2}{8}, die über eine Kupplung mit dem Anker (Rotor) des Generators verbunden ist. Zur Kühlung während des Betriebs sind auf der Außenseite Finnen aus Aluminium angebracht.\\
 Die Lagerung wird über zwei Wälzlager realisiert und als Fest-Los-Lagerung bezeichnet. Das Loslager ist ein Pendelkugellager \sieheAbbVerweis{1.2}{5} und dient zur Aufnahme der Radialkräfte, sprich die Kräfte die von außen auf die Welle wirken. Als Festlager dient ein Pendelrollenlager, \sieheAbbVerweis{1.2}{7} dass die kombinierten Axial- und Radialbelastungen aufnimmt. Unter Axialkraft versteht man die Belastung die längs der Achse wirkt.
-Müssen Wartungsarbeiten o.ä. an der WEA durchgeführt werden kann automatisches Anlaufen durch eine Bremse \sieheAbbVerweis{1.2}{6} verhindert werden. Mithilfe eines Bowdenzuges, also einem Seilzug der mechanische Kraft auf ein bewegliches Maschinenelement, in diesem Fall den Bremsbolzen überträgt, kann die WEA vom Boden aus verriegelt werden. \\
+Müssen Wartungsarbeiten o.Ä. an der WEA durchgeführt werden kann automatisches Anlaufen durch eine Bremse \sieheAbbVerweis{1.2}{6} verhindert werden. Mithilfe eines Bowdenzuges, also einem Seilzug der mechanische Kraft auf ein bewegliches Maschinenelement, in diesem Fall den Bremsbolzen überträgt, kann die WEA vom Boden aus verriegelt werden. \\
 Die hier betrachtete WEA zählt zu den kleineren Modellen und hat eine Narbenhöhe von 10m. Der Turm, welcher in diesem Prototyp aus Darstellungsgründen nicht berücksichtigt wird weist eine Höhe von 9,73m auf.\footnote{Vgl. Silvio Chemnitz, Sylvio Donner, Florian Hinze, Mats Mojem, Patrick Quandt, Oliver Seidler, Moritz Will, Jens Wuthe (2013): \textit{Windpumpsysteme zur dezentralen Energieversorgung von Abwassersystemen}. TU Berlin, S. 35--38, 44.} 
    
 
