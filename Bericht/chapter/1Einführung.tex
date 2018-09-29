@@ -1,17 +1,12 @@
 \chapter{Einführung}
 \section{Einleitung}
 \label{sec:Einleitung}
-Die vorliegende Arbeit beschäftigt sich mit der Fragestellung, ob und wie ein technisch konstruiertes CAD-Modell bspw. eine Maschine, ein Auto oder wie in diesem Fall eine Windenergieanlage (WEA) in das Echtzeitsystem Unity überführt werden kann, um aus diesem Modell eine VR-Anwendung zu entwickeln.
- 
+Die vorliegende Arbeit beschäftigt sich mit der Fragestellung, ob und wie ein technisch konstruiertes CAD-Modell bspw. eine Maschine, ein Auto oder wie in diesem Fall eine Windenergieanlage (WEA) in das Echtzeitsystem Unity überführt werden kann, um aus diesem Modell eine VR-Anwendung zu entwickeln.\\
 Zunächst wird in Kapitel 1 die Motivation zu dieser Arbeit kurz erläutert und mit Hilfe eines fachlichen Teils zur Funktion und zum Aufbau der WEA das Thema eingeleitet. 
-
-Weiterhin sollen in Kapitel 2 die Anwendungsbereiche von CAD-Programmen und die Möglichkeiten der 3D-Modellierung beschrieben werden. Darauf aufbauend wird auf den Transfer von CAD nach Autodesk Maya anhand des Exportformates eingegangen.
-
-Das Kapitel 3 wird sich mit einigen Grundbegriffen der 3D-Modellierung beschäftigen. Diese Grundlagen sind essentiell für die folgende Analyse des CAD-Exports. Auch die Aufbereitung des 3D-Modells für den Import in Unity wird behandelt.
-
-Kapitel 4 wird den Bereich um Unity abdecken. Hierzu wird das Open-Source Framework VRTK zur Erstellung einer VR-Anwendung untersucht, der Szenenaufbau in Unity beschrieben. Ferner werden die implementierten Anwendungsfälle aufgelistet und konkretisiert.
-
-Zuletzt soll in Kapitel 5 mithilfe eines Fazits konkret auf die Optimierung des Workflows und die Automatisierung von Teilschritten der Arbeit eingegangen werden. Diese haben sich durch neue Entwicklungen ergeben, konnten aber aufgrund des Projektfortschritts und dem zusätzlichen Forschungsaufwand im Rahmen dieser Arbeit  nicht mehr untersucht werden. Auch sollen abschließend noch Vorschläge und Ideen für weitere Funktionalitäten gegeben werden.
+Weiterhin sollen in Kapitel 2 die Anwendungsbereiche von CAD-Programmen und die Möglichkeiten der 3D-Modellierung beschrieben werden. Darauf aufbauend wird auf den Transfer von CAD nach Autodesk Maya anhand des Exportformates eingegangen.\\
+Das Kapitel 3 wird sich mit einigen Grundbegriffen der 3D-Modellierung beschäftigen. Diese Grundlagen sind essentiell für die folgende Analyse des CAD-Exports. Auch die Aufbereitung des 3D-Modells für den Import in Unity wird behandelt.\\
+Kapitel 4 wird den Bereich um Unity abdecken. Hierzu wird das Open-Source Framework VRTK im Hinblick auf die Erstellung einer VR-Anwendung untersucht sowie der Szenenaufbau in Unity beschrieben. Außerdem werden die implementierten Anwendungsfälle aufgelistet und konkretisiert. Ferner sollen neue Anforderungen, welche sich im Laufe von Tests ergeben haben erläutert werden.\\ 
+Zuletzt soll in Kapitel 5 mithilfe eines Fazits konkret auf die Optimierung des Workflows und die Automatisierung von Teilschritten der Arbeit eingegangen werden. Diese haben sich durch neue Entwicklungen ergeben, konnten aber aufgrund des Projektfortschritts und dem zusätzlichen Forschungsaufwand, im Rahmen dieser Arbeit  nicht mehr untersucht werden. Auch sollen abschließend noch Vorschläge und Ideen für weitere Funktionalitäten gegeben werden.
 
 
 \section{Motivation}
@@ -54,7 +49,17 @@ Der Rotor, mit an der Narbe montierten Rotorblättern \sieheAbbVerweis{1.1}{3} i
 
 Für die Stromerzeugung ist ein Generator verbaut \sieheAbbVerweis{1.2}{4}. Dieser wandelt auf Basis des Induktionsgesetzes mechanische Rotationsenergie in elektrische Energie um. Es wird eine Spule in einem Magnetfeld in Rotation versetzt. Durch die Rotation wird an den Klemmen der Spule eine sinusförmige Spannung induziert.\footnote{Vgl. Prof. Dr. G. Buch, Prof. Dr. M. Krug  (2012): \textit{Kurzskriptum zur Lehrveranstaltung „Elektrische Bordnetze“ im Studiengang Fahrzeugtechnik}. Hochschule München, S. 1.1.} In diesem Beispiel erhält der Generator die verfügbare Rotationsenergie über eine Welle \sieheAbbVerweis{1.2}{8}, die über eine Kupplung mit dem Anker (Rotor) des Generators verbunden ist. Zur Kühlung während des Betriebs sind auf der Außenseite Finnen aus Aluminium angebracht.\\
 Die Lagerung wird über zwei Wälzlager realisiert und als Fest-Los-Lagerung bezeichnet. Das Loslager ist ein Pendelkugellager \sieheAbbVerweis{1.2}{5} und dient zur Aufnahme der Radialkräfte, also die Kräfte, die von außen auf die Welle wirken. Als Festlager dient ein Pendelrollenlager, \sieheAbbVerweis{1.2}{7} dass die kombinierten Axial- und Radialbelastungen aufnimmt. Unter Axialkraft versteht man die Belastung die längs der Achse wirkt.
-Müssen Wartungsarbeiten o.Ä. an der WEA durchgeführt werden, kann automatisches Anlaufen durch eine Bremse \sieheAbbVerweis{1.2}{6} verhindert werden. Mithilfe eines Bowdenzuges, also einem Seilzug der mechanische Kraft auf ein bewegliches Maschinenelement, in diesem Fall den Bremsbolzen überträgt, kann die WEA vom Boden aus verriegelt werden. \\
+Müssen Wartungsarbeiten o.Ä. an der WEA durchgeführt werden, kann automatisches Anlaufen durch eine Bremse \sieheAbbVerweis{1.2}{6} verhindert werden. 
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.7\textwidth}
+	\includegraphics[keepaspectratio, width=0.7\textwidth]{bildquellen/bremse}
+	\caption{CAD-Modell der Bremse.}
+	\label{fig:bremse}
+\end{figure}
+
+Mithilfe eines Bowdenzuges \sieheAbb{1.3}, also einem Seilzug der mechanische Kraft auf ein bewegliches Maschinenelement, in diesem Fall den Bremsbolzen überträgt, kann die WEA vom Boden aus verriegelt werden. \\
 Die hier betrachtete WEA zählt zu den kleineren Modellen und hat eine Narbenhöhe von 10m. Der Turm, welcher in diesem Prototyp aus Darstellungsgründen nicht berücksichtigt wird, weist eine Höhe von 9,73m auf.\footnote{Vgl. Silvio Chemnitz, Sylvio Donner, Florian Hinze, Mats Mojem, Patrick Quandt, Oliver Seidler, Moritz Will, Jens Wuthe (2013): \textit{Windpumpsysteme zur dezentralen Energieversorgung von Abwassersystemen}. TU Berlin, S. 35--38, 44.} 
    
 

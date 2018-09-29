@@ -56,8 +56,8 @@ Um diese Probleme zu lösen ist eine Retopologisierung, also eine Überarbeitung
 Die Aufbereitung des Modells kann händisch oder automatisiert erfolgen. Die händische Retopologisierung ist aufwändiger und erfordert Kenntnisse in der Polygonmodellierung. Die Qualität und die Anzahl der Polygone des Modells können aber exakt gesteuert werden. Eine automatische Reduktion hat aufgrund von invalider Geometrie, sogenannter non-manifold geometry aber nicht funktioniert. Das folgende Zitat aus der Maya LT Dokumentation von Autodesk beschreibt in Kürze das Problem. 
 
 \begin{quote}
-\glqq Some types of polygon geometry will not work in Maya. Invalid geometry includes vertices that are not associated with a polygon edge and polygon edges that are not part of a face (dangling edges). While Maya does not let you create these types of geometry, it may be possible to import these types from other software applications.\grqq\footnote{Autodesk  (2015): \textit{Two-manifold vs. non-manifold polygonal geometry}.\newline
-\href{https://knowledge.autodesk.com/support/maya-lt/learn-explore/caas/CloudHelp/cloudhelp/2015/ENU/MayaLT/files/Polygons-overview-Twomanifold-vs--nonmanifold-polygonal-geometry-htm.html}{https://knowledge.autodesk.com/support/maya-lt/\dots},\newline abgerufen am 05.09.2018.} 
+\glqq Some types of polygon geometry will not work in Maya. Invalid geometry includes vertices that are not associated with a polygon edge and polygon edges that are not part of a face (dangling edges). While Maya does not let \clearpage
+ you create these types of geometry, it may be possible to import these types from other software applications.\grqq\footnote{Autodesk  (2015): \textit{Two-manifold vs. non-manifold polygonal geometry}.\newline\href{https://knowledge.autodesk.com/support/maya-lt/learn-explore/caas/CloudHelp/cloudhelp/2015/ENU/MayaLT/files/Polygons-overview-Twomanifold-vs--nonmanifold-polygonal-geometry-htm.html}{https://knowledge.autodesk.com/support/maya-lt/\dots},\newline abgerufen am 05.09.2018.} 
 \end{quote}
 
 Der Import aus CAD enthielt diese invalide Geometrie. Bei einem solch komplexen Modell eine Fehlersuche einzuleiten ist aber sehr zeitaufwendig und das Ergebnis der Autoreduktion ist qualitativ minderwertig, wie die folgende Abbildung aus einem anderen Projekt zeigt \sieheAbb{2.4}. 
@@ -70,7 +70,7 @@ Der Import aus CAD enthielt diese invalide Geometrie. Bei einem solch komplexen 
 	\label{fig:2.4}
 \end{figure}
 
-Daher erschien es praktikabler das Modell händisch aufzubereiten. Die Aufbereitung erfolgte in Maya anhand von Polygonmodellierung, auf Basis von primitiven Körpern (Primitives). das können bspw. Würfel, Zylinder, Kugeln, Tori etc. sein.  Mit Erzeugung dieser Primitives lässt sich durch Flächenextrusion die grobe Form nachbauen und mit Hilfe weiterer Unterteilungen verfeinern. Diese Anpassung des Primitives an die Form des CAD-Exportes geschieht für alle drei Raumdimensionen. Um eine sehr genaue Abbildung zu erzeugen können die Vertices des erzeugten Primitives an die Vertices des CAD-Modells \glqq angedockt\grqq\, werden. Es ist mit wenigen Werkzeugen möglich eine Abbildung des ursprünglichen Objektes mit guter Topologie und einer deutlich reduzierten Anzahl an Polygonen zu erzeugen. Die Vorgehensweise wird nachfolgend anhand eines Beispiels verdeutlicht \sieheAbb{2.5}.
+Daher erschien es praktikabler das Modell händisch aufzubereiten. Die Aufbereitung erfolgte in Maya anhand von Polygonmodellierung, auf Basis von primitiven Körpern (Primitives). Das können bspw. Würfel, Zylinder, Kugeln, Tori etc. sein.  Mit Erzeugung dieser Primitives lässt sich durch Flächenextrusion die grobe Form nachbauen und mit Hilfe weiterer Unterteilungen verfeinern. Diese Anpassung des Primitives an die Form des CAD-Exportes geschieht für alle drei Raumdimensionen. Um eine sehr genaue Abbildung zu erzeugen können die Vertices des erzeugten Primitives an die Vertices des CAD-Modells \glqq angedockt\grqq\, werden. Es ist mit wenigen Werkzeugen möglich eine Abbildung des ursprünglichen Objektes mit guter Topologie und einer deutlich reduzierten Anzahl an Polygonen zu erzeugen. Die Vorgehensweise wird nachfolgend anhand eines Beispiels verdeutlicht \sieheAbb{2.5}.
 
 \begin{figure}[H]
 	\centering
@@ -90,7 +90,7 @@ Die Gesamte Retopologisierung des CAD-Exportes fand mit mehr oder weniger diesen
 	\label{fig:2.6}
 \end{figure}
 
-Für ein einzelnes Objekt sind über 1000 Polygone kein Problem. Da es sich bei diesem Rotorblatt aber um eines von vielen Bauteilen handelt, kann die Polygondichte sehr schnell ausufern und die Hardware überfordern. Wenn sich das Objekt mit weniger Polygonen ähnlich gut beschreiben lässt, sollte diese Sparmaßname unbedingt greifen. Zudem gilt natürlich auch hier der Grundsatz des sparsamen Umgangs mit Hardwareressourcen, wie das generell in der Softwareentwicklung der Fall sein sollte.  
+Für ein einzelnes Objekt sind über 1000 Polygone kein Problem. Da es sich bei diesem Rotorblatt aber um eines von vielen Bauteilen handelt, kann die Polygondichte sehr schnell ausufern und die Hardware überfordern. Wenn sich das Objekt mit weniger Polygonen ähnlich gut beschreiben lässt, sollte diese Sparmaßname unbedingt greifen. Zudem gilt natürlich auch hier der Grundsatz des sparsamen Umgangs mit Hardware Ressourcen, wie das generell in der Softwareentwicklung der Fall sein sollte.  
 
 \begin{figure}[H]
 	\centering
